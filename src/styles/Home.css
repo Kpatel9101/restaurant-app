@@ -11,12 +11,16 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+<<<<<<< HEAD
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
   text-align: center;
   position: relative;
+=======
+  font-family: "Poppins", "Arial", sans-serif;
+>>>>>>> refs/remotes/origin/main
 }
 
 .headerContainer {
@@ -58,11 +62,19 @@
   box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.5);
 }
 
+<<<<<<< HEAD
 .imageSection {
   width: 100%;
   padding: 50px 20px;
   text-align: center;
 }
+=======
+@media only screen and (max-width: 650px) {
+  .home {
+    justify-content: center;
+    align-items: center;
+  }
+>>>>>>> refs/remotes/origin/main
 
 .imageSection h2 {
   font-size: 40px;
