@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import BannerImage from "../assets/home-banner.jpg";
+import BannerImage from "../assets/pizza_cover.svg";
 import PizzaImage1 from "../assets/pizza1.jpg";
 import PizzaImage2 from "../assets/pizza2.jpg";
 import PizzaImage3 from "../assets/pizza3.jpg";
@@ -24,10 +24,9 @@ function Home() {
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [direction, setDirection] = useState('forward'); // Track the direction of the slide
-  const [slideCount, setSlideCount] = useState(0); // Track the number of slides in current direction
+  const [direction, setDirection] = useState('forward'); 
+  const [slideCount, setSlideCount] = useState(0); 
 
-  // Function to update the pizza display every 4 seconds (slower transition)
   useEffect(() => {
     const interval = setInterval(() => {
       if (direction === 'forward') {
@@ -36,9 +35,8 @@ function Home() {
           setCurrentIndex(prevIndex => (prevIndex + 1) % pizzas.length);
           setSlideCount(prevCount => prevCount + 1);
         } else {
-          // After 5 slides, change direction to reverse
           setDirection('reverse');
-          setSlideCount(0); // Reset slide count for reverse direction
+          setSlideCount(0);
         }
       } else if (direction === 'reverse') {
         // Move backward
@@ -46,19 +44,16 @@ function Home() {
           setCurrentIndex(prevIndex => (prevIndex - 1 + pizzas.length) % pizzas.length);
           setSlideCount(prevCount => prevCount + 1);
         } else {
-          // After 5 slides in reverse, change direction to forward
           setDirection('forward');
-          setSlideCount(0); // Reset slide count for forward direction
+          setSlideCount(0); 
         }
       }
-    }, 4000); // Change every 4 seconds for a slower transition
+    }, 4000);
 
-    // Cleanup interval on component unmount
     return () => clearInterval(interval);
   }, [direction, slideCount]);
 
-  // Calculate the transform value for sliding
-  const transformValue = -currentIndex * 330; // Each pizzaInfo div is 300px + margin of 30px (approx. 330px)
+  const transformValue = -currentIndex * 330; 
 
   return (
     <div className="home">
